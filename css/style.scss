@@ -1,0 +1,44 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    min-height: 80px;
+
+    .logo {
+      font-weight: 500;
+      color: rgb(56, 56, 255);
+      text-transform: uppercase;
+
+      span {
+        color: rgb(226, 39, 39);
+        font-weight: 700;
+      }
+    }
+  }
+}
+.country {
+  background-color: #fff;
+  box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+  font-size: 1.8rem;
+  width: 30rem;
+  border-radius: 0.7rem;
+  margin: 0 3rem;
+  /* overflow: hidden; */
+}
