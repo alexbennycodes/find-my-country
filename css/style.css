@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 *,
 *::after,
 *::before {
@@ -8,7 +9,7 @@
 }
 
 body {
-  font-family: Helvetica, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .container {
@@ -31,14 +32,13 @@ body {
 }
 
 .container header .logo {
-  font-weight: 500;
+  font-weight: 400;
   color: #3838ff;
-  text-transform: uppercase;
 }
 
 .container header .logo span {
   color: #e22727;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .countries {
@@ -58,30 +58,64 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.15);
-          box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  -webkit-box-shadow: 0 1rem 6rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1rem 6rem rgba(0, 0, 0, 0.1);
+  font-size: 1.8rem;
+  border-radius: 0.7rem;
+  margin: 3% 3% 3% 0;
+  /* overflow: hidden; */
 }
 
 .countries .country .country-img {
   width: 100%;
-  padding: 0;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-color: #eee;
+  border-top-left-radius: 0.7rem;
+  border-top-right-radius: 0.7rem;
 }
 
 .countries .country .country-data {
-  padding: 1rem;
+  padding: 1.5rem 2rem;
+  text-transform: capitalize;
 }
 
 .countries .country .country-data .country-name {
-  text-transform: capitalize;
   font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
 }
 
 .countries .country .country-data .country-region {
-  text-transform: uppercase;
+  font-size: 1rem;
   font-weight: 600;
-  color: #5f5e5e;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.countries .country .country-data .country-row:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.countries .country .country-data .country-row {
+  font-size: 1rem;
+}
+
+.countries .country .country-data .country-row span {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+
+.sort-collection button {
+  font-family: "Poppins", sans-serif;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
