@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
 
   header {
@@ -35,25 +35,28 @@ body {
 }
 
 .countries {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 
   .country {
     width: 22%;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
     box-shadow: 0 1rem 6rem rgba(0, 0, 0, 0.1);
     font-size: 1.8rem;
     border-radius: 0.7rem;
-    margin: 3% 3% 3% 0;
+    margin-top: 2.5rem;
+    // margin: 3% 3% 3% 0;
     /* overflow: hidden; */
 
     .country-img {
       width: 100%;
-      // height: 100%;
+      height: 150px;
       object-fit: cover;
-      background-color: #eee;
+      background-color: rgb(255, 255, 255);
       border-top-left-radius: 0.7rem;
       border-top-right-radius: 0.7rem;
     }
