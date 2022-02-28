@@ -15,13 +15,16 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem 2rem 1rem;
 
   header {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
     font-size: 1.5rem;
-    min-height: 80px;
+    min-height: 50px;
+    padding: 2rem 0;
 
     .logo {
       font-weight: 400;
@@ -62,7 +65,7 @@ body {
     }
 
     .country-data {
-      padding: 1.5rem 1.5rem;
+      padding: 1.5rem;
       text-transform: capitalize;
       .country-name {
         font-size: 1.5rem;
@@ -95,12 +98,109 @@ body {
 }
 
 .sort-collection {
+  display: flex;
+  flex-wrap: wrap;
   button {
     font-family: "Poppins", sans-serif;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 2rem;
     margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
     cursor: pointer;
+  }
+}
+
+.searchbox {
+  .searchtype {
+    border: 1px solid rgb(191, 191, 191);
+    padding: 0.5rem 1rem;
+    border-radius: 10rem 0 0 10rem;
+    margin: 0;
+  }
+  .searchbtn {
+    padding: 0.5rem 1rem;
+    margin-left: -0.5rem;
+    border-radius: 0rem 10rem 10rem 0;
+    border: 1px solid rgb(191, 191, 191);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .countries {
+    .country {
+      width: 30%;
+    }
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .countries {
+    .country {
+      width: 42%;
+
+      .country-img {
+        width: 100%;
+        height: 125px;
+      }
+      .country-data {
+        padding: 1rem;
+
+        .country-name {
+          font-size: 1.25rem;
+          margin-bottom: 0.5rem;
+        }
+        .country-region {
+          font-size: 0.8rem;
+          margin-bottom: 1rem;
+        }
+        .country-row:not(:last-child) {
+          margin-bottom: 0.75rem;
+        }
+        .country-row {
+          font-size: 0.75rem;
+
+          span {
+            display: inline-block;
+            margin-right: 0.25rem;
+            font-size: 0.75rem;
+          }
+        }
+      }
+    }
+  }
+
+  .sort-collection {
+    button {
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+    }
+  }
+
+  .searchbox {
+    .searchtype {
+      padding: 0.35rem 1rem;
+    }
+    .searchbtn {
+      padding: 0.35rem 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .container {
+    header {
+      flex-direction: column;
+      padding: 1rem 0;
+
+      .logo {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  .countries {
+    .country {
+      width: 80%;
+    }
   }
 }

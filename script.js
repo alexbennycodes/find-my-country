@@ -23,7 +23,7 @@ const addCountry = function (data) {
     ? Object.values(Object.values(data.currencies)[0])[0]
     : ["No Currency"];
 
-  const html = `<article class="country">
+  const html = `<a href="country.html" class="country">
     <img class="country-img" src="${data_imgSrc}" />
     <div class="country-data">
       <h3 class="country-name">${data_countryName}</h3>
@@ -33,7 +33,7 @@ const addCountry = function (data) {
         <p class="country-row"><span>👫</span>${data_population}M people</p>
       <p class="country-row"><span>💰</span>${data_currencies}</p>
     </div>
-  </article>`;
+  </a>`;
   countriesContainer.insertAdjacentHTML("beforeend", html);
 };
 
