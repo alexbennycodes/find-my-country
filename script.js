@@ -10,6 +10,8 @@ const showEuropeBtn = document.querySelector(".show-europe");
 const showAmericasBtn = document.querySelector(".show-americas");
 const showOceaniaBtn = document.querySelector(".show-oceania");
 
+const searchContent = document.querySelector(".searchtype");
+
 const addCountry = function (data) {
   const data_imgSrc = Object.values(data.flags)[1];
   const data_countryName = data.name.common;
@@ -27,28 +29,19 @@ const addCountry = function (data) {
   const data_currencies = data.currencies
     ? Object.values(data.currencies)[0].name
     : ["No Currency"];
-  const html = `<a href="country.html" class="country">
+  const html = `<a href="" class="country">
     <img class="country-img" src="${data_imgSrc}" />
     <div class="country-data">
       <h3 class="country-name">${data_countryName}</h3>
       <h4 class="country-region">${data_region}</h4>
       <p class="country-row"><span>📍</span>${data_capital}</p>
       <p class="country-row"><span>🗣️</span>${data_languages}</p>
-        <p class="country-row"><span>👫</span>${data_population} people</p>
+      <p class="country-row"><span>👫</span>${data_population} people</p>
       <p class="country-row"><span>💰</span>${data_currencies}</p>
+      <p class="country-row country-cca3"><span>©️</span>${data.cca3}</p>
     </div>
   </a>`;
   countriesContainer.insertAdjacentHTML("beforeend", html);
-};
-
-const fetchCountry = async function (countryName) {
-  const response = await fetch(
-    `https://restcountries.com/v3.1/name/${countryName}`
-  );
-
-  const data = await response.json();
-  //console.log(...data);
-  addCountry(...data);
 };
 
 const printCountries = async function (region) {
@@ -56,10 +49,25 @@ const printCountries = async function (region) {
   const response = await fetch(`https://restcountries.com/v3.1/${region}`);
   const data = await response.json();
   for (let country of data) {
-    console.log(country);
+    //console.log(country);
     addCountry(country);
   }
 };
+
+const fetchCountry = async function (countryName) {
+  countriesContainer.textContent = "";
+  const response = await fetch(
+    `https://restcountries.com/v3.1/name/${countryName}`
+  );
+  const data = await response.json();
+  console.log(data);
+  // addCountry(...data);
+  for (let country of data) {
+    //console.log(country);
+    addCountry(country);
+  }
+};
+
 printCountries("all");
 
 showAllBtn.addEventListener("click", () => printCountries("all"));
@@ -72,3 +80,14 @@ showOceaniaBtn.addEventListener("click", () =>
 showAmericasBtn.addEventListener("click", () =>
   printCountries("region/americas")
 );
+
+const searchCountry = function () {
+  if (searchContent.value) fetchCountry(searchContent.value);
+  else printCountries("all");
+};
+
+function clearInp() {
+  document.querySelector(".searchtype").value = "";
+}
+
+clearInp();
