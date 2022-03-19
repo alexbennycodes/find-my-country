@@ -1,9 +1,10 @@
 "use strict";
 
-const containerDiv = document.querySelector(".container");
+const containerDiv = document.querySelector(".country-details");
 //console.log(containerDiv);
 
 const printCountryDetails = function (data) {
+  containerDiv.textContent = "";
   // const data_imgSrc = Object.values(data.flags)[1];
   // const data_countryName = data.name.common;
   // const data_region = data.region ? data.region : "Undefined";
@@ -23,6 +24,14 @@ const printCountryDetails = function (data) {
 
   // console.log(data.maps.googleMaps);
   //console.log(Object.entries(data.nativeName)[0]);
+  let bordershtml = "";
+  if (data.borders) {
+    for (let borderCountry of data.borders) {
+      bordershtml =
+        bordershtml + `<a class="border-country">${borderCountry}</a>, `;
+    }
+  }
+  //console.log(bordershtml);
   const html = `<div class="mycountrydiv">
     <div class="col">
       <h2>${data.name.common}</h2>
@@ -71,7 +80,7 @@ const printCountryDetails = function (data) {
             <tr><th>Land Locked</th><td>${
               data.landlocked ? "Yes" : "No"
             }</td></tr>
-            <tr><th>Land Borders</th><td>${data.borders}</td></tr> 
+            <tr><th>Land Borders</th><td>${bordershtml}</td></tr> 
             <tr><th>UN Member</th><td>${data.unMember ? "Yes" : "No"}</td></tr>
           </tbody>
         </table>
@@ -94,3 +103,10 @@ const fetchCountry = async function (countryCode) {
 };
 
 fetchCountry("MYS");
+
+const mouseClick = function (e) {
+  console.log(e.target.className);
+  if (e.target.className === "border-country") fetchCountry(e.target.innerHTML);
+};
+
+document.addEventListener("click", mouseClick);
