@@ -1,52 +1,138 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap");
+* {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  margin: 0;
+  color: #001f2e;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  background-color: #e6e6e6;
 }
 
-.container {
-  max-width: 1200px;
+a {
+  text-decoration: none;
+}
+
+nav {
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.01), 0 3px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.01), 0 3px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+nav .nav-container {
+  max-width: 1500px;
   margin: 0 auto;
-  padding: 0 1rem 2rem 1rem;
-}
-
-.container header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 1.25rem;
+}
+
+nav h1 {
   font-size: 1.5rem;
-  min-height: 50px;
-  padding: 2rem 0;
+  font-weight: 500;
 }
 
-.container header .logo {
-  font-weight: 400;
-  color: #3838ff;
+nav .mode-change {
+  display: none;
 }
 
-.container header .logo span {
-  color: #e22727;
-  font-weight: 600;
+nav .toggle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
 }
 
-.countries {
-  width: 100%;
+nav .toggle-btn {
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 1500px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .search-box {
+  padding: 1rem 1.5rem;
+  width: 60%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 1rem;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.01), 0 3px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.01), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+header .region-filter {
+  position: relative;
+}
+
+header .region-filter .region-filter-btn {
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.01), 0 3px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.01), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+header .region-filter ul {
+  display: none;
+  position: absolute;
+  background-color: white;
+  top: 60px;
+  padding: 1.25rem 4rem 1.25rem 2rem;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.01), 0 3px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.01), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+header .region-filter ul li {
+  list-style: none;
+  cursor: pointer;
+}
+
+header .region-filter ul li:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+header .region-filter.open ul {
+  display: block;
+}
+
+.country-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -54,263 +140,51 @@ body {
       flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  max-width: 1500px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
 }
 
-.countries .country {
-  width: 22%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+.country-list .country {
   background-color: white;
-  -webkit-box-shadow: 0 1rem 6rem rgba(0, 0, 0, 0.1);
-          box-shadow: 0 1rem 6rem rgba(0, 0, 0, 0.1);
-  font-size: 1.8rem;
-  border-radius: 0.7rem;
-  margin-top: 2.5rem;
-  /* overflow: hidden; */
+  width: 20rem;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.01), 0 3px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.01), 0 3px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 2rem;
 }
 
-.countries .country .country-img {
+.country-list .country:hover {
+  -webkit-transition: 500ms;
+  transition: 500ms;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.2);
+}
+
+.country-list .country .country-img {
   width: 100%;
-  height: 150px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  background-color: white;
-  border-top-left-radius: 0.7rem;
-  border-top-right-radius: 0.7rem;
 }
 
-.countries .country .country-data {
-  padding: 1.5rem;
-  text-transform: capitalize;
+.country-list .country .country-data {
+  padding: 1rem 2rem;
 }
 
-.countries .country .country-data .country-name {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.7rem;
-}
-
-.countries .country .country-data .country-region {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 1.25rem;
-  text-transform: uppercase;
-  color: #888;
-}
-
-.countries .country .country-data .country-row:not(:last-child) {
-  margin-bottom: 1rem;
-}
-
-.countries .country .country-data .country-row {
-  font-size: 1rem;
-}
-
-.countries .country .country-data .country-row span {
-  display: inline-block;
-  margin-right: 0.5rem;
-  font-size: 1rem;
-}
-
-.sort-collection {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.sort-collection button {
-  font-family: "Poppins", sans-serif;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 2rem;
-  margin-right: 0.5rem;
+.country-list .country .country-data p:not(:last-child) {
   margin-bottom: 0.5rem;
-  cursor: pointer;
 }
 
-.searchbox .searchtype {
-  border: 1px solid #bfbfbf;
-  padding: 0.5rem 1rem;
-  border-radius: 10rem 0 0 10rem;
-  margin: 0;
-  outline: none;
+.country-list .country .country-data .country-name {
+  font-weight: 500;
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
 }
 
-.searchbox .searchbtn {
-  padding: 0.5rem 1rem;
-  margin-left: -0.5rem;
-  border-radius: 0rem 10rem 10rem 0;
-  border: 1px solid #bfbfbf;
-}
-
-.mycountrydiv {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0.5rem;
-}
-
-.mycountrydiv .country-img {
-  width: 100%;
-  border-radius: 1rem;
-}
-
-.mycountrydiv .col {
-  width: 48%;
-  margin-bottom: 5rem;
-}
-
-.mycountrydiv .col h1 {
-  font-size: 2rem;
-  margin-bottom: 1.25rem;
-  font-weight: 700;
-}
-
-.mycountrydiv .col h2 {
-  font-size: 2.5rem;
+.country-list .country .country-data .country-region {
   text-transform: uppercase;
-  margin-bottom: 1.25rem;
-  font-weight: 700;
-}
-
-.mycountrydiv .col table,
-.mycountrydiv .col th,
-.mycountrydiv .col td,
-.mycountrydiv .col tr {
-  border-bottom: 1px solid rgba(221, 221, 221, 0.653);
-  text-align: left;
-  padding: 1rem 0.75rem;
-  border-collapse: collapse;
-  border-radius: 1rem;
-  color: rgba(35, 35, 35, 0.872);
-}
-
-.mycountrydiv .col th {
-  font-weight: 700;
-  color: black;
-}
-
-.mycountrydiv .col a {
-  text-decoration: underline;
-  color: darkblue;
-}
-
-@media screen and (max-width: 1200px) {
-  .countries .country {
-    width: 30%;
-  }
-  .mycountrydiv {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .mycountrydiv .country-img {
-    width: 100%;
-  }
-  .mycountrydiv .col {
-    width: 75%;
-    margin-bottom: 2rem;
-  }
-}
-
-@media screen and (max-width: 840px) {
-  .countries .country {
-    width: 42%;
-  }
-  .countries .country .country-img {
-    width: 100%;
-    height: 125px;
-  }
-  .countries .country .country-data {
-    padding: 1rem;
-  }
-  .countries .country .country-data .country-name {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-  }
-  .countries .country .country-data .country-region {
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
-  }
-  .countries .country .country-data .country-row:not(:last-child) {
-    margin-bottom: 0.75rem;
-  }
-  .countries .country .country-data .country-row {
-    font-size: 0.75rem;
-  }
-  .countries .country .country-data .country-row span {
-    display: inline-block;
-    margin-right: 0.25rem;
-    font-size: 0.75rem;
-  }
-  .sort-collection button {
-    padding: 0.25rem 0.75rem;
-    font-size: 0.75rem;
-  }
-  .searchbox .searchtype {
-    padding: 0.35rem 1rem;
-  }
-  .searchbox .searchbtn {
-    padding: 0.35rem 1rem;
-  }
-  .mycountrydiv .col {
-    width: 95%;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .container header {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    padding: 1rem 0;
-  }
-  .container header .logo {
-    margin-bottom: 1rem;
-  }
-  .countries .country {
-    width: 80%;
-  }
-  .mycountrydiv .col {
-    width: 100%;
-  }
-  .mycountrydiv .col h1 {
-    font-size: 1.25rem;
-  }
-  .mycountrydiv .col h2 {
-    font-size: 1.5rem;
-  }
-  .mycountrydiv .col table,
-  .mycountrydiv .col th,
-  .mycountrydiv .col td,
-  .mycountrydiv .col tr {
-    font-size: 0.75rem;
-    padding: 1rem 0.5rem;
-  }
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #403a5c;
+  margin-bottom: 0.75rem;
 }
 /*# sourceMappingURL=style.css.map */

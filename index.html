@@ -5,53 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FindMyCountry</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="css/css-reset.css" />
+    <!-- <link rel="stylesheet" href="css/css-reset.css" /> -->
     <link rel="stylesheet" href="css/style.css" />
-
+    <script
+      src="https://kit.fontawesome.com/0b12d2e52a.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div class="container">
-      <header>
-        <a href="index.html" class="logo">findmy<span>country</span></a>
-        <div class="searchbox">
-          <input
-            type="text"
-            placeholder="Search.."
-            name="search"
-            class="searchtype"
-            value=""
-            onkeyup="searchCountry()"
-          />
-          <button type="submit" class="searchbtn">
-            <i class="fa fa-search"></i>
-          </button>
+    <nav>
+      <div class="nav-container">
+        <a href="index.html">
+          <h1>FindMyCountry</h1>
+        </a>
+        <div class="toggle">
+          <i class="fa-regular fa-moon"></i>
+          <i class="fa-solid fa-moon mode-change"></i>
+          <button class="toggle-btn">Dark Mode</button>
         </div>
-      </header>
-      <div class="sort-collection">
-        <button class="show-all">All</button>
-        <button class="show-asia">Asia</button>
-        <button class="show-europe">Europe</button>
-        <button class="show-africa">Africa</button>
-        <button class="show-americas">Americas</button>
-        <button class="show-oceania">Oceania</button>
       </div>
-      <div class="countries">
-        <!-- <article class="country">
-          <img class="country-img" src="https://flagcdn.com/de.svg" />
-          <div class="country-data">
-            <h3 class="country-name">Country</h3>
-            <h4 class="country-region">REGION</h4>
-            <p class="country-row"><span>👫</span>POP people</p>
-            <p class="country-row"><span>🗣️</span>LANG</p>
-            <p class="country-row"><span>💰</span>CUR</p>
-          </div>
-        </article> -->
-      </div>
-      <section class="country-details"></section>
+    </nav>
+    <header>
+      <input
+        class="search-box"
+        id="searchInput"
+        type="text"
+        placeholder="Search for country"
+      />
+      <section class="region-filter">
+        <button class="region-filter-btn">Filter By Region</button>
+        <ul id="regions">
+          <li>Asia</li>
+          <li>Africa</li>
+          <li>Americas</li>
+          <li>Oceania</li>
+          <li>Europe</li>
+        </ul>
+      </section>
+    </header>
+    <section class="country-list"></section>
   </body>
 </html>
